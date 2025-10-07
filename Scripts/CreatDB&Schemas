@@ -1,0 +1,19 @@
+USE master
+GO
+
+IF NOT EXISTS(SELECT 1 FROM sys.databases WHERE name = 'QuickBite')		
+	CREATE DATABASE QuickBite
+GO
+
+USE QuickBite
+GO
+
+IF NOT EXISTS(SELECT 1 FROM sys.schemas where name ='bronze')
+	EXEC('CREATE SCHEMA bronze')
+GO
+IF NOT EXISTS(SELECT 1 FROM sys.schemas where name ='silver')
+	EXEC('CREATE SCHEMA silver')
+GO
+IF NOT EXISTS(SELECT 1 FROM sys.schemas where name ='gold')
+	EXEC('CREATE SCHEMA gold')
+GO
